@@ -18,3 +18,16 @@ const typeDefs = gql`
     password: String!
     savedBooks: Schema
   }
+
+  type Query {
+    book: [Book]
+    user(_id: String): [User]
+  }
+
+  type Mutation {
+    createMatchup(tech1: String!, tech2: String!): Matchup
+    createVote(_id: String!, techNum: Int!): Matchup
+  }
+`;
+
+module.exports = typeDefs;
