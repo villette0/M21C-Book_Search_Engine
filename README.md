@@ -47,7 +47,9 @@ THEN I am logged out of the site and presented with a menu with the options Sear
 - JavaScript
 
 ## Links
-* [Repository](https://github.com/villettec/react-portfolio)
+* [Deployment](https://heroku...)
+
+* [Repository](https://github.com/villettec/M21C-Book_Search_Engine)
 
 ## Screenshots
 ![image](./public/images/readme-screenshot.png)
