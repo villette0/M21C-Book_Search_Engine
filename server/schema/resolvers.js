@@ -37,7 +37,10 @@ const resolvers = {
         },
         saveBook: async (parent, {authors, decription, title, bookId, image}) => {
             const book = await Book.create({ authors, decription, title, bookId, image });
-        }
+        },
+        removeBook: async (parent, {}) => {
+          const book = await Book.delete({});
+      }
     }
 
 }
