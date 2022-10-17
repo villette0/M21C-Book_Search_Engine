@@ -46,9 +46,14 @@ THEN I am logged out of the site and presented with a menu with the options Sear
 ```
 
 ## Tasks Completed
+- Created files in server/schema/index.js, resolvers.js, typeDefs.js
+- Created files in public/src/utils/queries.js, mutation.js
+- Created files in 
 
 ## Languages
 - JavaScript
+
+## Tech Stack
 
 ## Links
 * [Deployment](https://heroku...)

@@ -4,42 +4,61 @@ export const LOGIN_USER = gql`
   mutation loginUser($email: String!, $password: String!) {
     loginUser(email: $email, password: $password) {
       token
-      profile {
+      user {
         _id
-        name
+        username
       }
     }
   }
 `;
 
 export const ADD_USER = gql`
-  mutation addUser($name: String!, $email: String!, $password: String!) {
-    addUser(name: $name, email: $email, password: $password) {
+  mutation addUser($username: String!, $email: String!, $password: String!) {
+    addUser(username: $username, email: $email, password: $password) {
       token
-      profile {
+      user {
         _id
-        name
+        username
       }
     }
   }
 `;
 
 export const SAVE_BOOK = gql`
-  mutation saveBook($profileId: ID!, $skill: String!) {
-    saveBook(profileId: $profileId, skill: $skill) {
-      _id
-      name
-      books
+  mutation saveBook($authors: [String]!, $description: String!, $title: String!, $bookId: String!, $image: String) {
+    saveBook(authors: $authors, description: $description, title: $title, bookId: $bookId, image: $image): User) {
+        _id
+            username
+            email
+            bookCount
+            savedBooks{
+                title
+                authors
+                bookId
+                description
     }
   }
+}
 `;
 
 export const REMOVE_BOOK = gql`
-  mutation removeBook($book: String!) {
-    removeBook(book: $book) {
-      _id
-      name
-      books
-    }
-  }
-`;
+    mutation removeBook($bookId: String!){
+        removeBook(bookId: $bookId){
+            _id
+            username
+            email
+            bookCount
+            savedBooks{
+                title
+                authors
+                bookId
+                description
+            }
+        }
+    }`
+
+// Google books api
+// https://www.googleapis.com/books/v1/volumes?q=ready+player+one
+export const searchGoogleBooks = (query) => {
+    return fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}`);
+};
